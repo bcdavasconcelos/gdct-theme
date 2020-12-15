@@ -1,0 +1,71 @@
+{
+  "name": "GDCT-Theme",
+  "locals": {
+    "page_size": "36",
+    "background_color": "rgba(255, 255, 255, 1.0)",
+    "author": "",
+    "email": "",
+    "author2": "",
+    "email2": "",
+    "description": "O GDCT é um acervo de ferramentas e estratégias para auxiliar o trabalho de pesquisa nas ciências humanas, com atenção especial aos estudos antigos.",
+    "dark_tag": "#828282",
+    "body_dark_text_color": "#fffdfa",
+    "body_dark_text_link_color": "#49bbe2",
+    "dark_background": "#403f3f",
+    "light_tag": "#828282",
+    "body_light_text_color": "#23384d",
+    "body_light_text_link_color": "#cf574a",
+    "light_background": "#fefefe",
+    "light_border": "#edb7b4",
+    "dark_border": "#fb6961"
+  },
+  "views": {
+    "entry.html": {
+      "partials": {
+        "title": "{{{entry.title}}} - {{{title}}}",
+        "description": "{{{entry.summary}}}"
+      }
+    },
+    "search.html": {
+      "url": "/search",
+      "partials": {
+        "title": "Busca - {{{title}}}",
+        "description": "Buscar todas entradas em {{{title}}}"
+      }
+    },
+    "tags.html": {
+      "url": "/"
+    },
+    "error.html": {
+      "partials": {
+        "title": "{{{error.title}}} - {{{title}}}",
+        "description": "Parece que há um erro com {{{title}}}"
+      }
+    },
+    "tagged.html": {
+      "partials": {
+        "title": "Postagens marcadas com a tag {{{tag}}} em {{{title}}}",
+        "description": "Todas as entradas postadas em {{{title}}} e marcadas com {{{tag}}}"
+      }
+    },
+    "archives.html": {
+      "url": "/archives",
+      "partials": {
+        "title": "Arquivo - {{{title}}}",
+        "description": "Todas as entradas postadas em {{{title}}}"
+      }
+    },
+    "entries.html": {
+      "partials": {
+        "title": "{{{title}}}",
+        "description": "As últimas postagens em {{{title}}}"
+      }
+    },
+    "public.html": {
+      "partials": {
+        "title": "Index de {{{path}}}",
+        "description": "Todas as pastas em {{{path}}}"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+{{> head}} 
+<body>
+{{> header}} 
+<main class="page-content" aria-label="Content"> 
+<div class="wrapper">
+	{{> tag_list}} 
+	<h1 style="text-align:center">
+		{{tag}}
+	</h1>
+	<div id="entry-list">
+		{{#entries}} 
+		<div class="wrapper" data-sort="{{title}}">
+			<p style="text-align:center">
+				<a href="{{{url}}}">{{title}}</a>
+			</p>
+		</div>
+		{{/entries}} 
+	</div>
+	<script type="text/javascript">
+		var list = document.querySelector('#entry-list');
+		[...list.children]
+		  .sort((a,b)=>a.getAttribute('data-sort')>b.getAttribute('data-sort')?1:-1)
+		  .forEach(node=>list.appendChild(node));
+	</script>
+</div>
+</main> 
+<script src="{{{scriptURL}}}" type="text/javascript">
+</script>
+{{> footer}} 
+</body>
+</html>

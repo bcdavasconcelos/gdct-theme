@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  {{> head}}
+  <body>
+    {{> header}}
+    <div class="container index">
+      {{#entries}}
+      <p>
+        <span class="light margin left">{{date}}</span>
+        <a href="{{{url}}}">{{title}}</a>
+        {{#tags.length}}
+            {{#tags}}
+            &nbsp;<a class="tag" href="/tagged/{{slug}}">#{{name}}</a>
+            {{/tags}}
+          {{/tags.length}}
+      </p>
+      {{/entries}}
+
+      <br /><Br />
+
+      {{#pagination}}
+      <p>
+
+        {{#previous}}
+        <span class="margin left">
+          <a href="/page/{{previous}}">&larr; Mais recente</a>
+        </span>
+        {{/previous}}
+
+        <span class="light" style="margin-right:30px">Página {{current}} de {{total}}</span>
+
+        {{#next}}
+        <a href="/page/{{next}}">Mais antigo &rarr;</a>
+        {{/next}}
+
+      </p>
+      {{/pagination}}
+    </div>
+    {{> footer}}
+  </body>
+</html>

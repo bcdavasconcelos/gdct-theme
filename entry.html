@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+{{> head}} 
+<body>
+{{> header}} 
+<main class="page-content" aria-label="Content"> 
+<div class="wrapper">
+	{{#entry}} {{{titleTag}}} 
+	<p class="light" style="font-size:0.8em">
+		{{#tags.length}} {{#tags}} &nbsp;<a class="tag" href="/tagged/{{slug}}">#{{name}}</a> {{/tags}} {{/tags.length}} 
+	</p>
+	<span class="content"> {{{body}}} <br />
+	
+	{{/entry}} 
+	</span> 
+	<button onclick="topFunction()" id="myBtn" title="Go to top">⬆︎</button>
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+	<script src="./anchor.js">
+	</script>
+	<script>
+		var selector = '.content h1, .content h2, .content h3, .content h4';
+		anchors.options = {
+		  placement: 'left',
+		  icon: '§'
+		};
+		anchors.add(selector);
+		generateTableOfContents(anchors.elements);
+		
+		// External code for generating a simple dynamic Table of Contents
+		function generateTableOfContents(els) {
+			var anchoredElText,
+		  		anchoredElHref,
+					ul = document.createElement('UL');
+		
+		  document.getElementById('table-of-contents').appendChild(ul);
+		
+			for (var i = 0; i < els.length; i++) {
+		  	anchoredElText = els[i].textContent;
+				anchoredElHref = els[i].querySelector('.anchorjs-link').getAttribute('href');
+		  	addNavItem(ul, anchoredElHref, anchoredElText);
+		  }
+		}
+		
+		function addNavItem(ul, href, text) {
+		  var listItem = document.createElement('LI'),
+				  anchorItem = document.createElement('A'),
+		  	  textNode = document.createTextNode(text);
+		
+		  anchorItem.href = href;
+		  ul.appendChild(listItem);
+		  listItem.appendChild(anchorItem);
+		  anchorItem.appendChild(textNode);
+		}
+	</script>
+</div>
+</main> 
+<script src="{{{scriptURL}}}" type="text/javascript"></script>
+
+{{> footer}} 
+</body>
+</html>
