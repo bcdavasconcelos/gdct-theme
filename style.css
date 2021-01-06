@@ -215,7 +215,7 @@ p,blockquote,pre,ul,ol,dl,figure,.highlight{
 	margin-top: 2em;
 }
 
- main{
+ .main {
      display:block
 }
  img{
@@ -246,7 +246,7 @@ img:hover {
  li>ul,li>ol{
      margin-bottom:0
 }
- h1,h2,h3,h4,h5,h6{
+ h1,h2{
      font-weight:400;
     /* text-transform: uppercase; */
 }
@@ -344,17 +344,19 @@ img:hover {
      vertical-align:text-bottom
 }
  table {
+	 overflow-x: auto!important;
      margin-bottom: 2em;
      padding: 0;
      font-size: inherit;
      min-width: 70%;
+    max-width: 100%;
      margin: 0 0 2em 2rem;
      border: 1px solid #9c9c98;
      border-collapse: separate;
      *border-collapse: collapse;
-     -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-     border-radius: 4px
+     -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+     border-radius: 2px
 }
  table caption, table col, table colgroup, table table, table tbody, table td, table tfoot, table th, table thead, table tr {
      border-spacing: 0;
@@ -452,6 +454,7 @@ img:hover {
      min-height:55.95px;
      line-height:54px;
      position:relative
+     z-index: 1000;
 }
  .site-title{
      font-size:26px;
@@ -461,6 +464,7 @@ img:hover {
      margin-bottom:0;
      float:left;
      color: var(--text-color);
+     z-index: 1000;
     /* text-transform: uppercase;
      */
 }
@@ -482,6 +486,7 @@ img:hover {
      border:1px solid var(--text-color);
      border-radius:5px;
      text-align:right;
+     z-index: 1000;
 }
  .site-nav .nav-trigger{
      display:none
@@ -549,8 +554,12 @@ img:hover {
 }
  .site-footer{
      border-top:1px solid var(--text-color);
-     padding:30px 0
+     height: auto;
+     padding: 30px 0;
+     z-index: 1;
+     background-color: var(--background);
 }
+
  .footer-heading{
      font-size:18px;
      margin-bottom:15px
@@ -1126,3 +1135,157 @@ sup::after {
 #myBtn:hover {
   background-color: #555;
 }
+
+
+
+h1 {
+font-size: 2.2em;
+}
+
+h2 {
+font-size: 1.6em;
+}
+
+h3 {
+font-size: 1.2em;
+font-style: italic;
+font-weight: normal!important;
+}
+
+h4 {
+font-size: 1em;
+font-style: italic;
+font-weight: normal;
+}
+
+.table-of-contents {
+  font-size: 0.7em;
+  height: auto;
+  width: 200px;
+  background-color: var(--background);
+  position: fixed;
+/*   overflow-x: initial; */
+  z-index: 0;
+  top: 0;
+  left: 0;
+  margin-top: 90px;
+  padding-top: 20px;
+}
+
+.table-of-contents a {
+  padding: 6px 6px 6px 32px;
+  display: block;
+}
+
+.table-of-contents a:hover {
+     color:var(--background);
+     background: var(--link-color);
+     text-decoration: none;
+}
+
+.artigo {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-width: 700px) {
+  .table-of-contents {
+  display: none;  
+}
+  .artigo {margin-left: 0;}
+
+}
+
+
+/* 
+@media screen and (max-width: 700px) {
+  .table-of-contents {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-top: 0px;
+  }
+  .table-of-contents a {
+  float: left;
+  }
+  .page-content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .table-of-contents a {
+    text-align: center;
+    float: none;
+  }
+}
+ */
+
+/* 
+.table-of-contents {
+	min-width: 8rem;
+	width: 8rem;
+	height: 80%;
+	position: fixed;
+	padding-top: 15%;
+	padding-left: 2rem;
+	font-size: 0.8em;
+}
+*/
+
+.toc {
+	overflow-y: auto
+}
+
+
+.toc>.toc-list {
+	overflow: hidden;
+	position: relative
+}
+
+.toc>.toc-list li,
+.toc-list li {
+	list-style: none
+}
+
+.toc-list {
+	margin: 0;
+	padding-left: 10px
+}
+
+a.toc-link {
+	color: currentColor;
+	height: 100%
+}
+
+.is-collapsible {
+	max-height: 1000px;
+	overflow: hidden;
+	transition: all 300ms ease-in-out
+}
+
+.is-collapsed {
+	max-height: 0
+}
+
+.is-position-fixed {
+	position: fixed !important;
+	top: 0
+}
+
+.is-active-link {
+	font-weight: 900
+}
+
+.toc-link::before {
+	background-color: var(--background);
+	content: '   ';
+	display: inline-block;
+	height: inherit;
+	left: 0;
+	margin-top: -1px;
+	position: absolute;
+	width: 2px
+}
+
+.is-active-link::before {
+     background: var(--link-color);
+}
+

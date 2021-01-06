@@ -6,6 +6,7 @@ const modeToggleButton = document.querySelector('.js-mode-toggle');
 const modeToggleText = document.querySelector('.js-mode-toggle-text');
 const modeStatusElement = document.querySelector('.js-mode-status');
 
+
 const getCSSCustomProp = propKey => {
   let response = getComputedStyle(document.documentElement).getPropertyValue(propKey);
 
