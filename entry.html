@@ -12,7 +12,8 @@
 	<p class="light" style="font-size:0.9em">
 		{{#tags.length}} {{#tags}} &nbsp;<a class="tag" href="/tagged/{{slug}}">#{{name}}</a> {{/tags}} {{/tags.length}} 
 	</p>
-	<div class="content"><div class="theText"> {{{body}}} 
+	<div class="content">
+	<div class="theText"> {{{body}}} 
 	
 	{{/entry}} 
 	</div>
@@ -112,10 +113,9 @@ tocbot.init({
 });
 	</script>
 	
-</div>
 </main> 
 <script src="{{{scriptURL}}}" type="text/javascript"></script>
-
+</div>
 {{> footer}} 
 </body>
 </html>

@@ -34,7 +34,7 @@
       }
     },
     "tags.html": {
-      "url": "/"
+      "url": "/tags"
     },
     "error.html": {
       "partials": {
